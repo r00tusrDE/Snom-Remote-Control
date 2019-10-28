@@ -24,7 +24,7 @@ namespace Snom_Remote_Control
         public FrmAbout()
         {
             InitializeComponent();
-            lblVersion.Content = "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            lblVersion.Content = FileVersionInfo.GetVersionInfo(Application.ResourceAssembly.Location).ProductVersion;
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
