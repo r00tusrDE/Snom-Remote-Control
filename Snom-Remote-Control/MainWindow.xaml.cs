@@ -196,5 +196,10 @@ namespace Snom_Remote_Control
                 BtnCall_Click(sender, e);
             }
         }
+
+        private void MenuItemExit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

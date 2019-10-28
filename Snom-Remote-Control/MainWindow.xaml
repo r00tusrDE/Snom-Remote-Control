@@ -9,12 +9,12 @@
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top" Background="White">
-                <MenuItem Header="_Datei">
+                <MenuItem x:Name="MenuItemExit" Header="_Datei" Click="MenuItemExit_Click">
                     <MenuItem Header="_Beenden" />
                 </MenuItem>
                 <MenuItem Header="_Tools">
                     <MenuItem x:Name="menuItemSettings" Header="_Einstellungen" Click="MenuItemSettings_Click" />
-                    <MenuItem x:Name="menuItemKBControl" Header="_Tastatur-Steuerung" Click="MenuItemKBControl_Click" />
+                    <MenuItem x:Name="menuItemKBControl" Header="_Tastatur-Steuerung" Click="MenuItemKBControl_Click" IsEnabled="False" />
                     <MenuItem x:Name="menuItemRestartPhone" Header="Telefon _neustarten" Click="menuItemRestartPhone_Click"/>
                 </MenuItem>
                 <MenuItem x:Name="menuItemAbout" Header="_Über" Click="MenuItemAbout_Click" />
