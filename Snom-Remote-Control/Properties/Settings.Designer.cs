@@ -25,7 +25,7 @@ namespace Snom_Remote_Control.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.24.51.220")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.0.0.0")]
         public string PhoneIP {
             get {
                 return ((string)(this["PhoneIP"]));
@@ -169,7 +169,7 @@ namespace Snom_Remote_Control.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public byte AutoSwitchOutput {
             get {
                 return ((byte)(this["AutoSwitchOutput"]));

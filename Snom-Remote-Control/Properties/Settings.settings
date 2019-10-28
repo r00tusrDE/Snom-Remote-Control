@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="PhoneIP" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10.24.51.220</Value>
+      <Value Profile="(Default)">0.0.0.0</Value>
     </Setting>
     <Setting Name="LoginEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -39,7 +39,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="AutoSwitchOutput" Type="System.Byte" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
   </Settings>
 </SettingsFile>
