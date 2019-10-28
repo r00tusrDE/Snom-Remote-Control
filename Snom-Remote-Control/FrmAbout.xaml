@@ -8,9 +8,20 @@
         Title="Snom Remote Control - Über" Height="274.659" Width="320.572" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
         <Label Content="Snom Remote Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" Width="295" HorizontalContentAlignment="Center"/>
-        <Label Content="Eine Anwendung zur Fernsteuerung von Snom &#xD;&#xA;Telefonen." HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="295"/>
-        <Label Content="Kompatibel mit folgenden Snom Modellen:&#xD;&#xA;snom3xx, 7xx und snom8xx" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
-        <Label Content="Dominik Pelz (©) 2019" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Width="295" HorizontalContentAlignment="Center"/>
+        <Label Content="Eine Anwendung zur Fernsteuerung von Snom &#xD;&#xA;Telefonen." HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="295"/>
+        <Label Content="Kompatibel mit folgenden Snom Modellen:&#xD;&#xA;snom3xx, 7xx und snom8xx" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dominik Pelz (©) 2019" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="295" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblVersion" Content="Version x.x.x.xxx" Margin="10,42,10,174" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="295" HorizontalContentAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,212,0,0" VerticalAlignment="Top">           
+            <Hyperlink NavigateUri="https://git.dopend.de/r00tusr/Snom-Remote-Control/src/branch/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate">
+                Lizenz
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="150,212,0,0" VerticalAlignment="Top">           
+            <Hyperlink NavigateUri="https://git.dopend.de/r00tusr/Snom-Remote-Control" RequestNavigate="Hyperlink_RequestNavigate">
+                Source Code
+            </Hyperlink>
+        </TextBlock>
 
     </Grid>
 </Window>
