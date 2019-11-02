@@ -21,10 +21,17 @@ namespace Snom_Remote_Control
     /// </summary>
     public partial class FrmAbout : Window
     {
+        private string licenseUrl = "https://git.dopend.de/r00tusr/Snom-Remote-Control/src/branch/master/LICENSE";
+        private string sourceCodeUrl = "https://git.dopend.de/r00tusr/Snom-Remote-Control";
+
         public FrmAbout()
         {
             InitializeComponent();
-            lblVersion.Content = FileVersionInfo.GetVersionInfo(Application.ResourceAssembly.Location).ProductVersion;
+            lblVersion.Text = FileVersionInfo.GetVersionInfo(Application.ResourceAssembly.Location).ProductVersion;
+            hlLicense.NavigateUri = new Uri(licenseUrl);
+            hlLicense.ToolTip = licenseUrl;
+            hlSourceCode.NavigateUri = new Uri(sourceCodeUrl);
+            hlSourceCode.ToolTip = sourceCodeUrl;
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

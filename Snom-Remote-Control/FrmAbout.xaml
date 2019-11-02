@@ -6,22 +6,27 @@
         xmlns:local="clr-namespace:Snom_Remote_Control"
         mc:Ignorable="d"
         Title="Snom Remote Control - Über" Height="274.659" Width="320.572" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
-    <Grid>
-        <Label Content="Snom Remote Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" Width="295" HorizontalContentAlignment="Center"/>
-        <Label Content="Eine Anwendung zur Fernsteuerung von Snom &#xD;&#xA;Telefonen." HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="295"/>
-        <Label Content="Kompatibel mit folgenden Snom Modellen:&#xD;&#xA;snom3xx, 7xx und snom8xx" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-        <Label Content="Dominik Pelz (©) 2019" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="295" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lblVersion" Content="Version x.x.x.xxx" Margin="10,42,10,174" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="295" HorizontalContentAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="97,212,0,0" VerticalAlignment="Top">           
-            <Hyperlink NavigateUri="https://git.dopend.de/r00tusr/Snom-Remote-Control/src/branch/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate">
-                Lizenz
-            </Hyperlink>
-        </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="150,212,0,0" VerticalAlignment="Top">           
-            <Hyperlink NavigateUri="https://git.dopend.de/r00tusr/Snom-Remote-Control" RequestNavigate="Hyperlink_RequestNavigate">
-                Source Code
-            </Hyperlink>
-        </TextBlock>
-
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="Snom Remote Control" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="20" />
+        <TextBlock x:Name="lblVersion" Text="Version x.x.x" HorizontalAlignment="Center" Margin="0,5" />
+        <TextBlock Text="Eine Anwendung zur Fernsteuerung von Snom &#xD;&#xA;Telefonen." HorizontalAlignment="Center" TextAlignment="Center" Margin="0,15,0,0" />
+        <TextBlock Text="Kompatibel mit folgenden Snom Modellen:&#xD;&#xA;snom3xx, 7xx und snom8xx" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,10,0,0" />
+        <TextBlock Text="Dominik Pelz (©) 2019" HorizontalAlignment="Center" Margin="0,30,0,0" />
+        <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,35,0" Grid.Column="0">
+                <Hyperlink x:Name="hlLicense" RequestNavigate="Hyperlink_RequestNavigate">
+                    Lizenz
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Grid.Column="1">
+                <Hyperlink x:Name="hlSourceCode" RequestNavigate="Hyperlink_RequestNavigate">
+                    Source Code
+                </Hyperlink>
+            </TextBlock>
+        </Grid>
+    </StackPanel>
 </Window>

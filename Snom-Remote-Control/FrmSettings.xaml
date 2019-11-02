@@ -6,24 +6,61 @@
         xmlns:local="clr-namespace:Snom_Remote_Control"
         mc:Ignorable="d"
         Title="Snom-Remote-Control - Einstellungen" Height="358.695" Width="293.499" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterOwner">
-    <Grid>
-        <Label Content="IP-Adresse:" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
-        <Label Content="Benutzername" HorizontalAlignment="Left" Margin="20,204,0,0" VerticalAlignment="Top"/>
-        <Label Content="Passwort" HorizontalAlignment="Left" Margin="20,235,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbAuth" Content="Authentifizierung benötigt" HorizontalAlignment="Left" Margin="20,168,0,0" VerticalAlignment="Top" ToolTip="" IsEnabled="False"/>
-        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="125,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" TextChanged="Settings_Changed" IsEnabled="{Binding ElementName=cbAuth, Path=IsChecked}"/>
-        <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="125,238,0,0" VerticalAlignment="Top" Width="140" Height="23" PasswordChanged="Settings_Changed" IsEnabled="{Binding ElementName=cbAuth, Path=IsChecked}"/>
-        <Button x:Name="btnApply" Content="Übernehmen" HorizontalAlignment="Left" Margin="111,287,0,0" VerticalAlignment="Top" Width="75" Click="BtnApply_Click" IsEnabled="False"/>
-        <Button x:Name="btnClose" Content="Schließen" HorizontalAlignment="Left" Margin="191,287,0,0" VerticalAlignment="Top" Width="75" Click="BtnClose_Click" IsCancel="True"/>
-        <Button x:Name="btnSave" Content="Speichern" HorizontalAlignment="Left" Margin="31,287,0,0" VerticalAlignment="Top" Width="75" Click="BtnSave_Click" IsEnabled="False"/>
-        <TextBox x:Name="tbIPaddress" HorizontalAlignment="Left" Height="23" Margin="125,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="0.0.0.0" TextChanged="Settings_Changed"/>
-        <Label Content="noch nicht unterstützt..." HorizontalAlignment="Left" Margin="35,178,0,0" VerticalAlignment="Top" Foreground="Red"/>
-        <Label Content="Automatisch zu" HorizontalAlignment="Left" Margin="20,63,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbSwitch" HorizontalAlignment="Left" Margin="117,67,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="Settings_Changed">
-            <ComboBoxItem Content="nichts"/>
-            <ComboBoxItem Content="Headset"/>
-            <ComboBoxItem Content="Lautsprecher"/>
-        </ComboBox>
-        <Label Content="wechseln beim wählen/abheben" HorizontalAlignment="Left" Margin="20,89,0,0" VerticalAlignment="Top"/>
-    </Grid>
+    <StackPanel Margin="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <!-- This border is a workaround to vertically center the TextBlock.
+                See https://stackoverflow.com/a/2633866 for more details. -->
+                <Border Height="22">
+                    <TextBlock Text="IP-Adresse:" VerticalAlignment="Center"/>
+                </Border>
+                <Border Height="22" Margin="0,20,0,0">
+                    <TextBlock Text="Automatisch zu" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox x:Name="tbIPaddress" Text="0.0.0.0" Height="22" MaxLines="1" TextChanged="Settings_Changed"/>
+                <ComboBox x:Name="cbSwitch" Height="22" SelectedIndex="0" SelectionChanged="Settings_Changed" Margin="0,20,0,0">
+                    <ComboBoxItem Content="nichts"/>
+                    <ComboBoxItem Content="Headset"/>
+                    <ComboBoxItem Content="Lautsprecher"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <TextBlock Text="wechseln beim wählen/abheben" Margin="0,5,0,0"/>
+        <CheckBox x:Name="cbAuth" Content="Authentifizierung benötigt" IsEnabled="False" Margin="0,50,0,0" Click="Settings_Changed"/>
+        <TextBlock Text="noch nicht unterstützt..." Foreground="Red" Margin="20,0,0,0"/>
+        <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Border Height="22">
+                    <TextBlock Text="Benutzername" VerticalAlignment="Center"/>
+                </Border>
+                <Border Height="22" Margin="0,10,0,0">
+                    <TextBlock Text="Passwort" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox x:Name="tbUsername" Height="22" MaxLines="1" TextChanged="Settings_Changed" IsEnabled="{Binding ElementName=cbAuth, Path=IsChecked}"/>
+                <PasswordBox x:Name="tbPassword" Height="22" Margin="0,10,0,0" PasswordChanged="Settings_Changed" IsEnabled="{Binding ElementName=cbAuth, Path=IsChecked}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="0,30,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnSave" Content="Speichern" Grid.Column="0" Width="75" Click="BtnSave_Click" IsEnabled="False"/>
+            <Button x:Name="btnApply" Content="Übernehmen" Grid.Column="1" Width="75" Click="BtnApply_Click" IsEnabled="False"/>
+            <Button x:Name="btnClose" Content="Schließen" Grid.Column="2" Width="75" Click="BtnClose_Click" IsCancel="True"/>
+        </Grid>
+    </StackPanel>
 </Window>

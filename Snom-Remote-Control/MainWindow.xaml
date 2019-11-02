@@ -6,44 +6,88 @@
         xmlns:local="clr-namespace:Snom_Remote_Control"
         mc:Ignorable="d"
         Title="Snom Remote Control" Height="353.517" Width="326.272" ResizeMode="CanMinimize" Closing="Window_Closing">
-    <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top" Background="White">
-                <MenuItem x:Name="MenuItemExit" Header="_Datei" Click="MenuItemExit_Click">
-                    <MenuItem Header="_Beenden" />
-                </MenuItem>
-                <MenuItem Header="_Tools">
-                    <MenuItem x:Name="menuItemSettings" Header="_Einstellungen" Click="MenuItemSettings_Click" />
-                    <MenuItem x:Name="menuItemKBControl" Header="_Tastatur-Steuerung" Click="MenuItemKBControl_Click" IsEnabled="False" />
-                    <MenuItem x:Name="menuItemRestartPhone" Header="Telefon _neustarten" Click="menuItemRestartPhone_Click"/>
-                </MenuItem>
-                <MenuItem x:Name="menuItemAbout" Header="_Über" Click="MenuItemAbout_Click" />
-            </Menu>
-        </DockPanel>
-        <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="20,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" MaxLines="1" KeyDown="tbNumber_KeyDown"/>
-        <Button x:Name="btnNum1" HorizontalAlignment="Left" Margin="44,72,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="1" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum2" HorizontalAlignment="Left" Margin="88,72,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="2" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum3" HorizontalAlignment="Left" Margin="133,72,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="3" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum4" HorizontalAlignment="Left" Margin="44,113,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="4" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum5" HorizontalAlignment="Left" Margin="88,113,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="5" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum6" HorizontalAlignment="Left" Margin="133,113,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="6" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum7" HorizontalAlignment="Left" Margin="44,158,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="7" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum8" HorizontalAlignment="Left" Margin="88,158,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="8" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum9" HorizontalAlignment="Left" Margin="133,158,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="9" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNum0" HorizontalAlignment="Left" Margin="88,202,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="0" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNumStar" HorizontalAlignment="Left" Margin="44,202,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="*" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnNumHash" HorizontalAlignment="Left" Margin="133,202,0,0" VerticalAlignment="Top" Width="35" Height="35" Content="#" Click="BtnNumpad_Click"/>
-        <Button x:Name="btnDND" Content="DND" HorizontalAlignment="Left" Margin="220,145,0,0" VerticalAlignment="Top" Width="75" Click="BtnDND_Click" Height="23"/>
-        <Button x:Name="btnTransfer" Content="Transfer" HorizontalAlignment="Left" Margin="220,181,0,0" VerticalAlignment="Top" Width="75" Click="BtnTransfer_Click" Height="23"/>
-        <Button x:Name="btnHold" Content="Halten" HorizontalAlignment="Left" Margin="220,214,0,0" VerticalAlignment="Top" Width="75" Click="BtnHold_Click" Height="23"/>
-        <Button x:Name="btnSpeaker" Content="Lautsprecher" HorizontalAlignment="Left" Margin="130,277,0,0" VerticalAlignment="Top" Width="75" Click="BtnSpeaker_Click" Height="23"/>
-        <Button x:Name="btnHeadset" Content="Headset" HorizontalAlignment="Left" Margin="210,277,0,0" VerticalAlignment="Top" Width="75" Click="BtnHeadset_Click" Height="23"/>
-        <Button x:Name="btnVolumeDown" Content="-" HorizontalAlignment="Left" Margin="51,277,0,0" VerticalAlignment="Top" Width="23" Height="23" Click="BtnVolumeDown_Click"/>
-        <Button x:Name="btnVolumeUp" Content="+" HorizontalAlignment="Left" Margin="85,277,0,0" VerticalAlignment="Top" Width="23" Height="23" Click="BtnVolumeUp_Click"/>
-        <Label Content="Volume" HorizontalAlignment="Left" Margin="59,258,0,0" VerticalAlignment="Top" FontSize="9"/>
-        <Button x:Name="btnCall" Content="Wählen" HorizontalAlignment="Left" Margin="220,35,0,0" VerticalAlignment="Top" Width="75" Click="BtnCall_Click" Height="23"/>
-        <Button x:Name="btnEndCall" Content="Auflegen" HorizontalAlignment="Left" Margin="220,108,0,0" VerticalAlignment="Top" Width="75" Click="BtnEndCall_Click" Height="23"/>
-        <Button x:Name="btnPickUp" Content="Abheben" HorizontalAlignment="Left" Margin="220,72,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="BtnPickUp_Click"/>
+    <StackPanel>
+        <Menu Background="White">
+            <MenuItem x:Name="MenuItemExit" Header="_Datei" Click="MenuItemExit_Click">
+                <MenuItem Header="_Beenden" />
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem x:Name="menuItemSettings" Header="_Einstellungen" Click="MenuItemSettings_Click" />
+                <MenuItem x:Name="menuItemKBControl" Header="_Tastatur-Steuerung" Click="MenuItemKBControl_Click" IsEnabled="False" />
+                <MenuItem x:Name="menuItemRestartPhone" Header="Telefon _neustarten" Click="menuItemRestartPhone_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="menuItemAbout" Header="_Über" Click="MenuItemAbout_Click" />
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <TextBox x:Name="tbNumber" HorizontalAlignment="Center" TextWrapping="Wrap" Width="168" Height="23" MaxLines="1" KeyDown="tbNumber_KeyDown" Margin="0,15,0,0"/>
+                <Grid Margin="0,15,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Button x:Name="btnNum1" Width="35" Height="35" Content="1" Margin="0,3.25" HorizontalAlignment="Right" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNum4" Width="35" Height="35" Content="4" Margin="0,3.25" HorizontalAlignment="Right" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNum7" Width="35" Height="35" Content="7" Margin="0,3.25"  HorizontalAlignment="Right" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNumStar" Width="35" Height="35" Content="*" Margin="0,3.25"  HorizontalAlignment="Right" Click="BtnNumpad_Click"/>
 
-    </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Button x:Name="btnNum2" Width="35" Height="35" Content="2" Margin="0,3.25" HorizontalAlignment="Center" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNum5" Width="35" Height="35" Content="5" Margin="0,3.25" HorizontalAlignment="Center" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNum8" Width="35" Height="35" Content="8" Margin="0,3.25" HorizontalAlignment="Center" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNum0" Width="35" Height="35" Content="0" Margin="0,3.25" HorizontalAlignment="Center" Click="BtnNumpad_Click"/>
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <Button x:Name="btnNum3" Width="35" Height="35" Content="3" Margin="0,3.25" HorizontalAlignment="Left" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNum6" Width="35" Height="35" Content="6" Margin="0,3.25" HorizontalAlignment="Left" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNum9" Width="35" Height="35" Content="9" Margin="0,3.25" HorizontalAlignment="Left" Click="BtnNumpad_Click"/>
+                        <Button x:Name="btnNumHash" Width="35" Height="35" Content="#" Margin="0,3.25" HorizontalAlignment="Left" Click="BtnNumpad_Click"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <Button x:Name="btnCall" Content="Wählen" Margin="10,15,0,0" HorizontalAlignment="Left" Width="75" Height="23" Click="BtnCall_Click"/>
+                <Button x:Name="btnPickUp" Content="Abheben" Margin="10,12,0,0" HorizontalAlignment="Left" Width="75" Height="23" Click="BtnPickUp_Click"/>
+                <Button x:Name="btnEndCall" Content="Auflegen" Margin="10,12,0,0" HorizontalAlignment="Left" Width="75" Height="23" Click="BtnEndCall_Click"/>
+                <Button x:Name="btnDND" Content="DND" Margin="10,12,0,0" HorizontalAlignment="Left" Width="75" Height="23" Click="BtnDND_Click"/>
+                <Button x:Name="btnTransfer" Content="Transfer" Margin="10,12,0,0" HorizontalAlignment="Left" Width="75" Height="23" Click="BtnTransfer_Click"/>
+                <Button x:Name="btnHold" Content="Halten" Margin="10,12,0,0" HorizontalAlignment="Left" Width="75" Height="23" Click="BtnHold_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,25,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,10,0">
+                        <TextBlock Text="Volume" HorizontalAlignment="Center" FontSize="10" />
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="btnVolumeDown" Content="-" Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,5,0" Width="23" Height="23" Click="BtnVolumeDown_Click"/>
+                            <Button x:Name="btnVolumeUp" Content="+" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Width="23" Height="23" Click="BtnVolumeUp_Click"/>
+                        </Grid>
+                    </StackPanel>
+                    <Button x:Name="btnSpeaker" Content="Lautsprecher" Grid.Column="1" Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Click="BtnSpeaker_Click" Height="23"/>
+                    <Button x:Name="btnHeadset" Content="Headset" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Click="BtnHeadset_Click" Height="23"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </Window>
