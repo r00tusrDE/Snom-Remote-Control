@@ -88,7 +88,7 @@ namespace Snom_Remote_Control
 
             Settings.Default.AutoSwitchOutput = (byte)cbSwitch.SelectedIndex;
 
-            Properties.Settings.Default.Save();
+            Settings.Default.Save();
             MessageBox.Show("Settings saved....");
             settingsChanged = false;
         }
