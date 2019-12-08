@@ -31,40 +31,39 @@ namespace Snom_Remote_Control
         private void BtnCall_Click(object sender, RoutedEventArgs e)
         {
             string callNumber = tbNumber.Text;
-            // Remove spaces, slashes and dashes from number
-            callNumber = Regex.Replace(callNumber, @"\s+|\/|\-", "");
-            if (callNumber.StartsWith("+49") || callNumber.StartsWith("49"))
+
+            // Only allow 0-9, +, -, /, *, (, )
+            if (new Regex(@"[0-9+\-\/\*\(\)]").Matches(callNumber).Count == 0)
             {
-                callNumber = Regex.Replace(callNumber, @"\+49|49", "0");
+                MessageBox.Show("Bitte trage eine gültige Telefonnummer in das Textfeld ein!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else if (callNumber.StartsWith("+"))
+            else
             {
-                string countryCode = callNumber.Substring(1, 2);
-                callNumber = Regex.Replace(callNumber, @"\+..", "00" + countryCode);
-            }
-            else if (callNumber.StartsWith("(0)"))
-            {
-                callNumber = Regex.Replace(callNumber, @"\(0\)", "0");
-            }
-            if (callNumber.Contains("(0)"))
-            {
-                callNumber = Regex.Replace(callNumber, @"\(0\)", "");
+                // Remove spaces, slashes and dashes from number
+                callNumber = Regex.Replace(callNumber, @"\s+|\/|\-|\(|\)", "");
+
+                if (callNumber.StartsWith("+"))
+                    callNumber = Regex.Replace(callNumber, @"\+", "00");
+
+                if (callNumber.Substring(4, 1).Equals("0"))
+                    callNumber = callNumber.Remove(4, 1);
+
+                switch (Settings.Default.AutoSwitchOutput)
+                {
+                    case 1:
+                        WebHandler.SendCmdAsync("number=" + callNumber);
+                        WebHandler.SendKeyAsync("HEADSET");
+                        break;
+                    case 2:
+                        WebHandler.SendCmdAsync("number=" + callNumber);
+                        WebHandler.SendKeyAsync("SPEAKER");
+                        break;
+                    default:
+                        WebHandler.SendCmdAsync("number=" + callNumber);
+                        break;
+                }
             }
 
-            switch (Settings.Default.AutoSwitchOutput)
-            {
-                case 1:
-                    WebHandler.SendCmdAsync("number=" + callNumber);
-                    WebHandler.SendKeyAsync("HEADSET");
-                    break;
-                case 2:
-                    WebHandler.SendCmdAsync("number=" + callNumber);
-                    WebHandler.SendKeyAsync("SPEAKER");
-                    break;
-                default:
-                    WebHandler.SendCmdAsync("number=" + callNumber);
-                    break;
-            }
         }
 
         private void BtnPickUp_Click(object sender, RoutedEventArgs e)
