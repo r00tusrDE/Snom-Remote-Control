@@ -21,8 +21,8 @@ namespace Snom_Remote_Control
     /// </summary>
     public partial class FrmAbout : Window
     {
-        private string licenseUrl = "https://git.dopend.de/r00tusr/Snom-Remote-Control/src/branch/master/LICENSE";
-        private string sourceCodeUrl = "https://git.dopend.de/r00tusr/Snom-Remote-Control";
+        private string licenseUrl = "https://github.com/r00tusrDE/Snom-Remote-Control/blob/master/LICENSE";
+        private string sourceCodeUrl = "https://github.com/r00tusrDE/Snom-Remote-Control";
 
         public FrmAbout()
         {
